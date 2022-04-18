@@ -7,47 +7,20 @@ body {
 :focus-visible,
 video:focus {
   outline: 0;
-  box-shadow: 0 0 0 6px rgba(255, 81, 0, 0.5);
+  box-shadow: 0 0 0 6px $color-primary;
 }
 
 .logo {
   display: flex;
+  justify-content: center;
   position: absolute;
   align-items: center;
-  width: 268px;
+  max-width: 100%;
   height: 110px;
-  left: auto;
-  right: auto;
   top: 42px;
 
   img {
-    display: flex;
-    position: relative;
-    left: auto;
-    right: auto;
-    //bottom: 50.22%;
-    //background: #D04F4F;
-    width: 55px;
-    top: 0px;
-    border-radius: 0px;
-  }
-
-  p {
-    display: flex;
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: 0%;
-    margin: 0;
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-
-    /* identical to box height */
-    text-align: center;
-
-    color: #d04f4f;
+    margin-left: 500px;
   }
 }
 
@@ -162,12 +135,11 @@ text-align: center;
       height: 180px;
       width: 100%;
       border-radius: 5px;
-      box-shadow: $profile-picture-shadow;
     }
 
     img:focus {
       outline: 0;
-      box-shadow: 0 0 0 6px rgba(255, 81, 0, 0.5);
+      box-shadow: 0 0 0 6px $color-primary;
     }
 
     .cardtext {
