@@ -5,7 +5,7 @@ function articleBuilder(recipe) {
   content.insertAdjacentHTML(
     "beforeend",
     `<article>
-    <img class="thumbnail" src= "assets/recipes-images/plat1.jpg" alt="" tabindex="0">
+    <img class="thumbnail" src= "assets/recipes-images/${recipe.id}.jpg" alt="" tabindex="0">
       
     <div class="cardtext">
       <h2 class="cardtext-recipe-name" >${recipe.name}</h2>
