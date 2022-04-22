@@ -1,0 +1,231 @@
+body {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:focus-visible,
+video:focus {
+  outline: 0;
+  box-shadow: 0 0 0 6px $color-primary;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  max-width: 100%;
+  height: 110px;
+  top: 42px;
+
+  img {
+    margin-left: 500px;
+  }
+}
+
+#main {
+  margin-top: 200px;
+}
+
+#search-bar {
+  position: relative;
+  height: 69px;
+  width: 1240px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  bottom: 0%;
+  background: #e7e7e7;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  /* identical to box height */
+
+  color: #000000;
+
+  opacity: 0.25;
+}
+
+
+#tags{display : flex; flex-direction: row ; row-gap: 20px; padding-top: 30px;}
+
+.ingredient-tag {
+  position : relative;
+  height: 69px;
+  width: 170px;
+  left: 0px;
+  top: 0px;
+  padding-right: 10px;
+  margin-right: 20px;
+
+  border-radius: 5px;
+  color: #FFFFFF;
+font-family: 'Lato';
+font-size: 18px;
+font-weight: 700;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
+background: #3282F7;}
+
+
+
+
+
+
+#sort-menu-section{display: flex; flex-direction: row;column-gap: 30px;margin-top: 25px;}
+
+
+.sort-menu{
+  height: 69px;
+  width: 170px;
+  left: 0px;
+  top: 0px;
+  padding-right: 30px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+#sort-menu-ingredients{background: #3282F7;column-count: 2;}
+
+#sort-menu-appliance{background:  #68D9A4;}
+
+#sort-menu-ustensils{background: #ED6454;}
+
+
+
+
+
+#gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+
+  article {
+    display: flex;
+    justify-self: center;
+    display: flex;
+    height: 364px;
+    width: 380px;
+    //justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      display: flex;
+      cursor: pointer;
+      object-fit: cover;
+      height: 180px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    img:focus {
+      outline: 0;
+      box-shadow: 0 0 0 6px $color-primary;
+    }
+
+    .cardtext {
+      display: grid;
+      grid-template-columns: 5% 25% 20% 20% 25% 5%;
+      grid-template-rows: 20% 70% 10%;
+      width: 100%;
+      height: 184px;
+      padding: 20px 0 0 0;
+      background-color: #e7e7e7;
+    }
+
+    .cardtext-recipe-name {
+      grid-column-start: 2;
+      grid-column-end: 5;
+      grid-row: 1;
+      margin: 0;
+      font-family: 'Lato';
+      font-style: normal;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+
+
+    .cardtext-cooking-time {
+      grid-column: 5;
+      grid-row: 1;
+      text-align: right;
+
+      .cardtext-cooking-time-icon {
+        position: relative;
+        top: 10%;
+        bottom: 10px;
+        left: 10px;
+        border-radius: 0;
+        height: 20px;
+        width: 20px;
+      }
+
+      .cardtext-cooking-time-number {
+        position: relative;
+        top: -50%;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+
+    .cardtext-ingredients {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row: 2;
+      padding-left: 0;
+      font-family: 'Lato';
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+      
+    }
+
+    .cardtext-ingredients-list {
+      padding-left: 0px;
+      overflow: hidden;
+    }
+
+    .cardtext-description {
+      
+      grid-column-start: 4;
+      grid-column-end: 6;
+      grid-row: 2;
+      padding-top: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp:7;
+      -webkit-box-orient: vertical;
+      white-space: normal; 
+      width: 170px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12px;
+      letter-spacing: 0em;
+      text-align: left;
+      height: 84px;
+    }
+  }
+}

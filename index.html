@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <meta name="title" content="Les petits plats, recettes de cuisine" />
+  <title>Les petits plats - recettes</title>
+</head>
+
+<body>
+  <!-- ==================================      HEADER       =============================================-->
+  <header class="logo">
+    <a id="home-page-link" href="index.html">
+      <img src="assets/images/logo.svg" alt="logo, une toque de chef cuisinier" />
+    </a>
+  </header>
+  <!-- ==================================      MAIN       =============================================-->
+  <main id="main">
+    <section id="search">
+      <input id="search-bar" onkeyup="search_recipe()" type="text" name="search" placeholder="Rechercher une recette">
+      <div id="tags"></div>
+    </section>
+
+    <!-- ================================== DROPDOWN OU MENUS DEROULANTS DE TRI =======================================-->
+    <section id="sort-menu-section" tabindex="0" aria-label="trier par">
+      <select id="sort-menu-ingredients" class="sort-menu" name="sort menu ingredients">
+        <option value="sort-ingredients">Ingredients</option>
+      </select>
+      <select id="sort-menu-appliance" class="sort-menu" name="sort menu" id="sort-menu">
+        <option value="sort-sppliance">Appareils</option>
+      </select>
+      <select id="sort-menu-ustensils" class="sort-menu" name="sort menu" id="sort-menu">
+        <option value="sort-ustensils">Ustensiles</option>
+
+      </select>
+    </section>
+
+
+    <!-- ================================== GALERIE DES RECETTES VIDE QUI EST REMPLIE GRACE AU FACTORY PATTERN ===========-->
+    <section id="gallery"></section>
+
+
+    <!-- ======================================== SCRIPTS  ==================================================-->
+    <script src="js/recipes.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/filters.js"></script>
+</body>
+
+</html>
