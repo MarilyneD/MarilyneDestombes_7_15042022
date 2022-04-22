@@ -35,15 +35,9 @@ video:focus {
   left: 0px;
   top: 0px;
   border-radius: 5px;
-
-  // left: 0%;
-  // right: 0%;
-  top: 0%;
   bottom: 0%;
   background: #e7e7e7;
-  border-radius: 5px;
-
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -70,7 +64,7 @@ video:focus {
 
   border-radius: 5px;
   color: #FFFFFF;
-font-family: Lato;
+font-family: 'Lato';
 font-size: 18px;
 font-weight: 700;
 line-height: 22px;
@@ -94,12 +88,12 @@ background: #3282F7;}
   padding-right: 30px;
   border-radius: 5px;
   color: #FFFFFF;
-font-family: Lato;
-font-size: 18px;
-font-weight: 700;
-line-height: 22px;
-letter-spacing: 0em;
-text-align: center;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 #sort-menu-ingredients{background: #3282F7;column-count: 2;}
@@ -123,7 +117,7 @@ text-align: center;
     justify-self: center;
     display: flex;
     height: 364px;
-    width: 100%;
+    width: 380px;
     //justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -157,7 +151,8 @@ text-align: center;
       grid-column-end: 5;
       grid-row: 1;
       margin: 0;
-      font-family: Lato;
+      font-family: 'Lato';
+      font-style: normal;
       font-size: 18px;
       font-weight: 400;
       line-height: 22px;
@@ -173,13 +168,21 @@ text-align: center;
 
       .cardtext-cooking-time-icon {
         position: relative;
-        top: auto;
+        top: 10%;
         bottom: 10px;
-        right: 30%;
+        left: 10px;
         border-radius: 0;
-        //box-shadow: 0;
         height: 20px;
         width: 20px;
+      }
+
+      .cardtext-cooking-time-number {
+        position: relative;
+        top: -50%;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
       }
     }
 
@@ -188,7 +191,7 @@ text-align: center;
       grid-column-end: 4;
       grid-row: 2;
       padding-left: 0;
-      font-family: Lato;
+      font-family: 'Lato';
       font-size: 12px;
       font-weight: 700;
       line-height: 14px;
@@ -203,17 +206,26 @@ text-align: center;
     }
 
     .cardtext-description {
+      
       grid-column-start: 4;
       grid-column-end: 6;
       grid-row: 2;
       padding-top: 10px;
       overflow: hidden;
-      font-family: Roboto;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp:7;
+      -webkit-box-orient: vertical;
+      white-space: normal; 
+      width: 170px;
+      font-family: 'Roboto';
+      font-style: normal;
       font-size: 12px;
       font-weight: 400;
       line-height: 12px;
       letter-spacing: 0em;
       text-align: left;
+      height: 84px;
     }
   }
 }

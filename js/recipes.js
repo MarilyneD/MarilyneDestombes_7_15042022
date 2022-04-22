@@ -51,7 +51,7 @@ const recipesArray = [
                 "quantity" : 2
             },
             {
-                "ingredient" : "Carotte",
+                "ingredient" : "Carottes",
                 "quantity" : 1
             },
             {
@@ -124,7 +124,7 @@ const recipesArray = [
                 "quantity": 2
             },
             {
-                "ingredient": "Oeuf dur",
+                "ingredient": "Oeufs durs",
                 "quantity": 2
             },
             {
@@ -192,11 +192,11 @@ const recipesArray = [
                 "quantity": 1
             },
             {
-                "ingredient": "Pomme",
+                "ingredient": "Pommes",
                 "quantity": 3
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": "2"
             },
             {
@@ -205,7 +205,7 @@ const recipesArray = [
                 "unit": "cl"
             },
             {
-                "ingredient": "Sucre en Poudre",
+                "ingredient": "Sucre en poudre",
                 "quantity": 100,
                 "unit":"grammes"
             },
@@ -274,11 +274,11 @@ const recipesArray = [
                "unit": "grammes"
            },
            {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 2
            },
            {
-               "ingredient": "Sucre en Poudre",
+               "ingredient": "Sucre en poudre",
                "quantity": "110",
                "unit": "grammes"
            },
@@ -359,7 +359,7 @@ const recipesArray = [
         "time": 60,
         "description": "Commencer par cuire les pommes de terre dans l'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le reblochon, soit en tranches, soit le couper en 2 dans le sens de l'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C'est prêt !",
         "appliance":"Four",
-        "ustensils": ["plat à gratin", "couteau","Économe"]
+        "ustensils": ["plat à gratin", "couteau","économe"]
     },{
         "id": 11,
         "name": "Salade tomate, mozzarella et pommes",
@@ -381,7 +381,7 @@ const recipesArray = [
                 "unit": "tranches"
             }, 
             {
-                "ingredient": "Pomme",
+                "ingredient": "Pommes",
                 "quantity": 1
             },
             {
@@ -479,7 +479,7 @@ const recipesArray = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 1
 
             },
@@ -642,7 +642,7 @@ const recipesArray = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Kiwi",
+                "ingredient": "Kiwis",
                 "quantity": 4
             },
             {
@@ -660,7 +660,7 @@ const recipesArray = [
                 "unit":"grammes"
             },
             {
-                "ingredient": "Banane",
+                "ingredient": "Bananes",
                 "quantity": 1
             }
         ],
@@ -742,8 +742,8 @@ const recipesArray = [
         ],
         "time": 30,
         "description":"Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pâtes le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pâtes sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
-        "appliance": "Casserole.",
-        "ustensils":["Cuillère en bois", "louche", "couteau"]
+        "appliance": "Casserole",
+        "ustensils":["cuillère en bois", "louche", "couteau"]
     },
     {
         "id": 22,
@@ -766,7 +766,7 @@ const recipesArray = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 4
             },
             {
@@ -801,7 +801,7 @@ const recipesArray = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 3
             },
             {
@@ -885,7 +885,7 @@ const recipesArray = [
                 "unit":"grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 1
             }
         ],
@@ -935,7 +935,7 @@ const recipesArray = [
                 "quantity": 2
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 1
             },
             {
@@ -1056,7 +1056,7 @@ const recipesArray = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Carotte",
+                "ingredient": "Carottes",
                 "quantity": 2
             },
             {
@@ -1082,7 +1082,7 @@ const recipesArray = [
         "time": 60,
         "description":"Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d'eau. Ajouter les petits pois et les haricots verts ( tous deux pré-cuits ). Ajouter Sel, poivre, thym et laurier",
         "appliance": "Poêle",
-        "ustensils":["Couteau", "économe"]
+        "ustensils":["couteau", "économe"]
     },
     {
         "id": 32,
@@ -1198,7 +1198,7 @@ const recipesArray = [
                 "quantity": 6
             },
             {
-                "ingredient": "Pomme de terre",
+                "ingredient": "Pommes de terre",
                 "quantity": 1
             },
             {
@@ -1304,7 +1304,7 @@ const recipesArray = [
         "time": 60,
         "description":"Couper les courgettes dans le sens de la longueur. Vider les courgettes dans un saladier. Réserver. Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
         "appliance": "Four",
-        "ustensils":["couteau", "cuillère en bois", "Poêle à frire"]
+        "ustensils":["couteau", "cuillère en bois", "poêle à frire"]
     },
     {
         "id": 38,
@@ -1322,7 +1322,7 @@ const recipesArray = [
                 "unit": "cl"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 3
             },
             {
@@ -1334,7 +1334,7 @@ const recipesArray = [
         "time": 20,
         "description":"Fouetter les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir",
         "appliance": "Four",
-        "ustensils":["fouet", "bol","Cuillère à Soupe"]
+        "ustensils":["fouet", "bol","cuillère à Soupe"]
     },
     {
         "id": 39,
@@ -1342,7 +1342,7 @@ const recipesArray = [
         "servings": 40,
         "ingredients": [
             {
-                "ingredient": "Pomme",
+                "ingredient": "Pommes",
                 "quantity": 2
             },
             {
@@ -1402,7 +1402,7 @@ const recipesArray = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 3
             },
             {
@@ -1432,7 +1432,7 @@ const recipesArray = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 3
             },
             {
@@ -1471,7 +1471,7 @@ const recipesArray = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 3
             },
             {
@@ -1530,7 +1530,7 @@ const recipesArray = [
                 "unit": "cl"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 2
             },
             {
@@ -1570,7 +1570,7 @@ const recipesArray = [
                 "unit": "sachet"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 4
             },
             {
@@ -1661,7 +1661,7 @@ const recipesArray = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Banane",
+                "ingredient": "Bananes",
                 "quantity": 2
             },
             {
@@ -1699,7 +1699,7 @@ const recipesArray = [
                 "unit":"grammes"
             },
             {
-                "ingredient": "Oeuf",
+                "ingredient": "Oeufs",
                 "quantity": 6
             },
             {
