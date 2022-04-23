@@ -1,6 +1,9 @@
-const selectIngredients = document.getElementById("sort-menu-ingredients");
-const selectAppliance = document.getElementById("sort-menu-appliance");
-const selectUstensils = document.getElementById("sort-menu-ustensils");
+// const selectIngredients = document.getElementById("sort-menu-ingredients");
+// const selectAppliance = document.getElementById("sort-menu-appliance");
+// const selectUstensils = document.getElementById("sort-menu-ustensils");
+const ingredientsList = document.getElementById("ingredients-list");
+const appliancesList = document.getElementById("appliances-list");
+const ustensilsList = document.getElementById("ustensils-list");
 const gallery = document.querySelector("#gallery");
 const searchBar = document.getElementById("search-bar");
 const tags = document.getElementById("tags");
@@ -23,79 +26,62 @@ var reducedTagIngredientsRecipesArray = [];
 var selectedIngredientsArray = [];
 
 
-// fonctions d'ajout des options dans le menu select ingrédients
+
+
+// fonctions d'ajout des options dans le menu select ingrédients 
+//selon un tableau de recettes (variable qui peut changer/être réduit)
+// on cherche à remplir les menus select donc à établir des tableaux contenant tous les ingrédients,appareils et ustensils
+// On initie le tableau des ingredients double boucle foEach, sur les recettes et sur les ingredients d'une recette
 
 function addOptionsIngredients(recipesArray) {
   function ingredientsArrayInit() {
-    ingredientsArray = [];
-    function pushIngredient(recipe) {
-      recipe.ingredients.forEach((ingredient) =>
-        ingredientsArray.push(ingredient.ingredient)
-      );
-    }
-    recipesArray.forEach((recipe) => pushIngredient(recipe));
-    ingredientsArray = [...new Set(ingredientsArray)];
-    ingredientsArray.sort();
-  };
-
+    // définition de la fonction qui boucle sur les ingredients d'une recette à la fois (push ajoute un élt à un tableau)
+  ingredientsArray = []; // remise à zéro des ingrédients (car la frappe de l'utilisateur a changé) 
+  ingredientsArray =  recipesArray.map(recipe => recipe.ingredients).flat(); //on extrait les tableaux d'ingrédient et on flat(enlève les sous-tableaux)
+  ingredientsArray = ingredientsArray.map(ingredient =>ingredient.ingredient); //on extrait seulement les noms des ingrédients
+  ingredientsArray = [...new Set(ingredientsArray)].sort(); //on retire les doublons et on sort() par ordre alphabétique (défaut)
+    };
   ingredientsArrayInit();
-  selectIngredients.innerHTML = "<option>Ingredients</option>";
-
-  function addOption(ingredient) {
-    selectIngredients.options[selectIngredients.options.length] = new Option(
-      ingredient,
-      ingredient
-    );
-  }
+  ingredientsList.innerHTML = ""; //on réinitialise toutes les options
+    function addOption(ingredient) {
+    ingredientsList.insertAdjacentHTML("beforeend", 
+    `<li class="ingredient-li" data-ingredient="${ingredient}">${ingredient}</li>`)};
   ingredientsArray.forEach((ingredient) => addOption(ingredient));
 }
+
+
 
 // de même pour le tableau des appareils, une seule boucle car un seul appareil par recette
 function addOptionsAppliance(recipesArray) {
   function applianceArrayInit() {
     applianceArray = [];
     recipesArray.forEach((recipe) => applianceArray.push(recipe.appliance));
-    applianceArray = [...new Set(applianceArray)];
-    applianceArray.sort();
+    applianceArray = [...new Set(applianceArray)].sort();
   }
   applianceArrayInit();
-  selectAppliance.innerHTML = "<option>Appareils</option>";
-
-  function addOption(appliance) {
-    selectAppliance.options[selectAppliance.options.length] = new Option(
-      appliance,
-      appliance
-    );
-  }
+  appliancesList.innerHTML = "";
+  function addOption(appliance) {appliancesList.insertAdjacentHTML("beforeend", 
+  `<li class="appliance-li" data-appliance="${appliance}">${appliance}</li>`)}
   applianceArray.forEach((appliance) => addOption(appliance));
 }
 
 // de même pour le tableau des ustensils (plusieurs par recette)
 function addOptionsUstensils(recipesArray) {
   function ustensilsArrayInit() {
-    ustensilsArray = [];
-    function pushUstensil(recipe) {
-
-      recipe.ustensils.forEach((ustensil) =>
-        ustensilsArray.push(ustensil)
-      );
-    }
-    recipesArray.forEach((recipe) => pushUstensil(recipe));
-    ustensilsArray = [...new Set(ustensilsArray)];
-    ustensilsArray.sort();
+    ustensilsArray = recipesArray.map(recipe => recipe.ustensils).flat(); //on extrait les tableaux d'ingrédient et on flat(enlève les sous-tableaux)
+    ustensilsArray = [...new Set(ustensilsArray)].sort();
   }
-
   ustensilsArrayInit();
-  selectUstensils.innerHTML = "<option>Ustensiles</option>";
+  ustensilsList.innerHTML = "";
 
   function addOption(ustensil) {
-    selectUstensils.options[selectUstensils.options.length] = new Option(
-      ustensil,
-      ustensil
-    );
+    ustensilsList.insertAdjacentHTML("beforeend",
+      `<li class="ustensil-li" data-ustensil="${ustensil}">${ustensil}</li>`)
   }
   ustensilsArray.forEach((ustensil) => addOption(ustensil));
 }
+
+
 
 
 // fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories :
@@ -116,8 +102,6 @@ function findRecipesContaining(string, recipesArray) {
   reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray); // ingredients + name
   reducedRecipesArray = reducedRecipesArray.concat(reducedDescriptionRecipesArray); // lui-même + description
   reducedRecipesArray = [...new Set(reducedRecipesArray)]; // on retire les doublons
-
-
 
   // un peu de console.log pour voir ce qui se passe !!!
   console.log("Un ingrédient contient l'expression,  numéros des recettes :",
@@ -188,7 +172,7 @@ function init() {
   addOptionsUstensils(recipesArray);
 
   searchBarFunction();
-  clickOnSelectIngredientsFunction();
+  //clickOnSelectIngredientsFunction();
 }
 
 init();
