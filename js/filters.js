@@ -1,6 +1,3 @@
-// const selectIngredients = document.getElementById("sort-menu-ingredients");
-// const selectAppliance = document.getElementById("sort-menu-appliance");
-// const selectUstensils = document.getElementById("sort-menu-ustensils");
 const ingredientsList = document.getElementById("ingredients-list");
 const appliancesList = document.getElementById("appliances-list");
 const ustensilsList = document.getElementById("ustensils-list");
@@ -22,34 +19,31 @@ var reducedIngredientsRecipesArray = [];
 var reducedApplianceRecipesArray = [];
 var reducedUstensilsRecipesArray = [];
 var reducedRecipesArray = [];
-var reducedTagIngredientsRecipesArray = [];
+var reducedTagRecipesArray = [];
+var reducedIngredientsTagRecipesArray = [];
+var reducedApplianceTagRecipesArray = [];
+var reducedUstensilsTagRecipesArray = [];
 var selectedIngredientsArray = [];
-
+var selectedApplianceArray = [];
+var selectedUstensilsArray = [];
 
 
 
 // fonctions d'ajout des options dans le menu select ingrédients 
-//selon un tableau de recettes (variable qui peut changer/être réduit)
-// on cherche à remplir les menus select donc à établir des tableaux contenant tous les ingrédients,appareils et ustensils
-// On initie le tableau des ingredients double boucle foEach, sur les recettes et sur les ingredients d'une recette
-
 function addOptionsIngredients(recipesArray) {
   function ingredientsArrayInit() {
-    // définition de la fonction qui boucle sur les ingredients d'une recette à la fois (push ajoute un élt à un tableau)
-  ingredientsArray = []; // remise à zéro des ingrédients (car la frappe de l'utilisateur a changé) 
-  ingredientsArray =  recipesArray.map(recipe => recipe.ingredients).flat(); //on extrait les tableaux d'ingrédient et on flat(enlève les sous-tableaux)
-  ingredientsArray = ingredientsArray.map(ingredient =>ingredient.ingredient); //on extrait seulement les noms des ingrédients
-  ingredientsArray = [...new Set(ingredientsArray)].sort(); //on retire les doublons et on sort() par ordre alphabétique (défaut)
+  ingredientsArray = [];  
+  ingredientsArray =  recipesArray.map(recipe => recipe.ingredients).flat(); 
+  ingredientsArray = ingredientsArray.map(ingredient =>ingredient.ingredient); 
+  ingredientsArray = [...new Set(ingredientsArray)].sort(); 
     };
   ingredientsArrayInit();
-  ingredientsList.innerHTML = ""; //on réinitialise toutes les options
+  ingredientsList.innerHTML = ""; 
     function addOption(ingredient) {
     ingredientsList.insertAdjacentHTML("beforeend", 
-    `<li class="ingredient-li" data-ingredient="${ingredient}">${ingredient}</li>`)};
+    `<li class="ingredient-li">${ingredient}</li>`)};
   ingredientsArray.forEach((ingredient) => addOption(ingredient));
 }
-
-
 
 // de même pour le tableau des appareils, une seule boucle car un seul appareil par recette
 function addOptionsAppliance(recipesArray) {
@@ -61,14 +55,14 @@ function addOptionsAppliance(recipesArray) {
   applianceArrayInit();
   appliancesList.innerHTML = "";
   function addOption(appliance) {appliancesList.insertAdjacentHTML("beforeend", 
-  `<li class="appliance-li" data-appliance="${appliance}">${appliance}</li>`)}
+  `<li class="appliance-li">${appliance}</li>`)}
   applianceArray.forEach((appliance) => addOption(appliance));
 }
 
 // de même pour le tableau des ustensils (plusieurs par recette)
 function addOptionsUstensils(recipesArray) {
   function ustensilsArrayInit() {
-    ustensilsArray = recipesArray.map(recipe => recipe.ustensils).flat(); //on extrait les tableaux d'ingrédient et on flat(enlève les sous-tableaux)
+    ustensilsArray = recipesArray.map(recipe => recipe.ustensils).flat(); 
     ustensilsArray = [...new Set(ustensilsArray)].sort();
   }
   ustensilsArrayInit();
@@ -76,36 +70,27 @@ function addOptionsUstensils(recipesArray) {
 
   function addOption(ustensil) {
     ustensilsList.insertAdjacentHTML("beforeend",
-      `<li class="ustensil-li" data-ustensil="${ustensil}">${ustensil}</li>`)
+      `<li class="ustensil-li">${ustensil}</li>`)
   }
   ustensilsArray.forEach((ustensil) => addOption(ustensil));
 }
 
-
-
-
-// fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories :
-// titre, ingredients et description
-
+// fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
 function findRecipesContaining(string, recipesArray) {
-  // exp(ression) est la regexp que l'on crée à partir du string : la chaîne de caractère entrée au clavier
-  var exp = new RegExp("" + string + "", "gi"); //gi = global (tous les caractères), insensible (à la casse, donc minuscule ou maj)
+  var exp = new RegExp("" + string + "", "gi");
   console.log("expression", exp);
 
-  //on filtre maintenant les ingrédients, les names/titres et les descriptions contenant le mot exp(ression)
   reducedIngredientsRecipesArray = recipesArray.filter((item) =>
     item.ingredients.some((ingredient) => exp.test(ingredient.ingredient)));
   reducedNameRecipesArray = recipesArray.filter((item) => exp.test(item.name));
   reducedDescriptionRecipesArray = recipesArray.filter((item) => exp.test(item.description));
-
-  // maintenant on ne fait qu'un tableau avec les trois, concaténer = additionner deux tableaux
-  reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray); // ingredients + name
-  reducedRecipesArray = reducedRecipesArray.concat(reducedDescriptionRecipesArray); // lui-même + description
-  reducedRecipesArray = [...new Set(reducedRecipesArray)]; // on retire les doublons
+  reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray); 
+  reducedRecipesArray = reducedRecipesArray.concat(reducedDescriptionRecipesArray);
+  reducedRecipesArray = [...new Set(reducedRecipesArray)];
 
   // un peu de console.log pour voir ce qui se passe !!!
   console.log("Un ingrédient contient l'expression,  numéros des recettes :",
-      reducedIngredientsRecipesArray.map(recipe => recipe.id)); //on extrait seulement les id
+      reducedIngredientsRecipesArray.map(recipe => recipe.id));
   console.log("Le titre contient l'expression,  numéros des recettes :",
         reducedNameRecipesArray.map(recipe => recipe.id));
   console.log("La description contient l'expression,  numéros des recettes :",
@@ -117,62 +102,192 @@ function findRecipesContaining(string, recipesArray) {
   console.log("reducedRecipesArray", reducedRecipesArray);
 }
 
-
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
     let value = e.target.value;
     if (value.trim().length >= 3) {
       findRecipesContaining(value, recipesArray);
-      gallery.innerHTML = "";
+      if (reducedRecipesArray == 0 ){console.log("Aucune recette ne correspond")}
+      else{gallery.innerHTML = "";
       galleryBuilder(reducedRecipesArray);
       addOptionsIngredients(reducedRecipesArray);
       addOptionsAppliance(reducedRecipesArray);
       addOptionsUstensils(reducedRecipesArray);
-
+      createIngredientsTag();
+      createApplianceTag();
+      createUstensilsTag();}
     } else { console.log("entrer au moins trois caractères") }
   });
 }
 
-//fonction qui écoute le click sur les ingrédients!
-function clickOnSelectIngredientsFunction() {
-  selectIngredients.addEventListener("click", (event) => {
-    console.log("selectIngredients.value", selectIngredients.value);
-    console.log("selectIngredients.selected", selectIngredients.selectedIndex);
+  //fonction qui écoute le click sur les ingrédients du menu select
+  function createIngredientsTag() {
 
-    if (!(selectedIngredientsArray.includes(selectIngredients.value)) & selectIngredients.selectedIndex > 0) {
-      //if(reducedRecipesArray.length=0){console.log("TABLEAU VIDE");reducedRecipesArray = [].concat(recipesArray)}else{console.log("TABLEAU NOOON VIDE");};//au cas où on clique sur les ingrédient avant d'avoir tapé une recherche
+    document.querySelectorAll(".ingredient-li").forEach((ingredientElement) => {
+  
+      ingredientElement.addEventListener("click", () => {
+        console.log("click sur l'ingrédient :", ingredientElement.textContent);
+  
+        if (!(selectedIngredientsArray.includes(ingredientElement.textContent))) {
+          console.log("selectedIngredientsArray avant ajout", selectedIngredientsArray);
+          selectedIngredientsArray.push(ingredientElement.textContent);
+          console.log("selectedIngredientsArray", selectedIngredientsArray);
+          tags.insertAdjacentHTML("beforeend", `<div class="ingredient-tag tag">${ingredientElement.textContent}<img class="close-icon" src="assets/images/close-icon.svg" alt="croix fermer du tag" /></div>`);
+          tagRecipes();
+          gallery.innerHTML = "";
+          galleryBuilder(reducedTagRecipesArray);
+         addOptionsIngredients(reducedTagRecipesArray);
+         addOptionsAppliance(reducedTagRecipesArray);
+         addOptionsUstensils(reducedTagRecipesArray);
+         createIngredientsTag(); 
+         createApplianceTag();
+         createUstensilsTag();
+          closeTag();
+        } else { console.log("l'ingrédient a déjà été sélectionné") }
+      });
+    });
+    
+  }
+    
+  //fonction qui écoute le click sur l'appareil' du menu select
+  function createApplianceTag() {
+ 
+    document.querySelectorAll(".appliance-li").forEach((applianceElement) => {
+  
+      applianceElement.addEventListener("click", () => {
+        console.log("click sur l'appareil :", applianceElement.textContent);
+  
+        if (!(selectedApplianceArray.includes(applianceElement.textContent))) {
+          selectedApplianceArray.push(applianceElement.textContent);
+          console.log("selectedApplianceArray", selectedApplianceArray);
+          tags.insertAdjacentHTML("beforeend", `<div class="appliance-tag tag">${applianceElement.textContent}<img class="close-icon" src="assets/images/close-icon.svg" alt="croix fermer du tag" /></div>`);
+          tagRecipes();
+          gallery.innerHTML = "";
+          galleryBuilder(reducedTagRecipesArray);
+         addOptionsIngredients(reducedTagRecipesArray);
+         addOptionsAppliance(reducedTagRecipesArray);
+         addOptionsUstensils(reducedTagRecipesArray);
+         createIngredientsTag(); 
+         createApplianceTag();
+         createUstensilsTag();
+          closeTag();
+           } else { console.log("l'appareil a déjà été sélectionné") }
+      });
+    });
+  }
+    
+  //fonction qui écoute le click sur les ustensils du menu select
+  function createUstensilsTag() {
+ 
+    document.querySelectorAll(".ustensil-li").forEach((ustensilElement) => {
+  
+      ustensilElement.addEventListener("click", () => {
+        console.log("click sur l'ustensile :", ustensilElement.textContent);
+  
+        if (!(selectedUstensilsArray.includes(ustensilElement.textContent))) {
+  
+          selectedUstensilsArray.push(ustensilElement.textContent);
+          console.log("selectedUstensilsArray", selectedUstensilsArray);
+          tags.insertAdjacentHTML("beforeend", `<div class="ustensil-tag tag">${ustensilElement.textContent}<img class="close-icon" src="assets/images/close-icon.svg" alt="croix fermer du tag" /></div>`);
+          tagRecipes();
+          gallery.innerHTML = "";
+          galleryBuilder(reducedTagRecipesArray);
+         addOptionsIngredients(reducedTagRecipesArray);
+         addOptionsAppliance(reducedTagRecipesArray);
+         addOptionsUstensils(reducedTagRecipesArray);
+         createIngredientsTag(); 
+         createApplianceTag();
+         createUstensilsTag();
+          closeTag();
+           } else { console.log("l'appareil a déjà été sélectionné") }
+      });
+    });
+  }
 
-      console.log("reducedRecipesArray.length", reducedRecipesArray.length);
-      console.log("recipesArray", recipesArray);
-      console.log("reducedRecipesArray", reducedRecipesArray);
-      selectedIngredientsArray.push(selectIngredients.value);
-      console.log("selectedIngredientsArray", selectedIngredientsArray);
-      reducedTagIngredientsRecipesArray = reducedRecipesArray.filter((item) =>
-        item.ingredients.some(
-          (ingredient) => ingredient.ingredient == selectIngredients.value
-        )
-      );
-      console.log("reducedTagIngredientsRecipesArray", reducedTagIngredientsRecipesArray);
+ //fonction qui écoute le click/close quand je ferme le TAG
+ function closeTag() {
+  document.querySelectorAll(".tag").forEach((tag) => {
+     function reInitAll(){
+       tagRecipes();
+       gallery.innerHTML = "";
+       galleryBuilder(reducedTagRecipesArray);
+       addOptionsIngredients(reducedTagRecipesArray);
+       addOptionsAppliance(reducedTagRecipesArray);
+       addOptionsUstensils(reducedTagRecipesArray);
+       createIngredientsTag();
+       createApplianceTag();
+       createUstensilsTag();
+       closeTag();
+        };
 
-      tags.insertAdjacentHTML("beforeend", `<div class="ingredient-tag"> ${selectIngredients.value}</div>`);
-      gallery.innerHTML = "";
-      galleryBuilder(reducedTagIngredientsRecipesArray);
 
-    } else { console.log("l'ingrédient a déjà été sélectionné ou est le titre") };
-
-  });
+   tag.addEventListener("click", () => {
+    
+     switch (tag.classList[0]) { 
+  
+       case 'ingredient-tag':
+         selectedIngredientsArray = selectedIngredientsArray.filter(item => item !==  tag.textContent);
+         console.log("selectedIngredientsArray après suppression",selectedIngredientsArray);
+         tag.remove();
+         reInitAll();
+         break;
+       case 'appliance-tag':
+         console.log("selectedApplianceArray avant le click",selectedApplianceArray);
+         selectedApplianceArray = selectedApplianceArray.filter(item => item !==  tag.textContent);
+         console.log("selectedApplianceArray après suppression",selectedApplianceArray);
+         tag.remove();
+         reInitAll();
+         break;
+       case 'ustensil-tag':
+         selectedUstensilsArray = selectedUstensilsArray.filter(item => item !==  tag.textContent);
+         console.log("après suppression",selectedUstensilsArray);
+         tag.remove();
+         reInitAll();
+         break;
+       default:
+         console.log(`Sorry`);
+     }
+     
+   });
+ });
 }
 
+  //fonction qui va reconstruire une liste de recettes selon les TAGS choisis
+  function tagRecipes() {
+      
+    if (reducedRecipesArray.length == 0) { reducedRecipesArray = [].concat(recipesArray) };
+    console.log("reducedRecipesArray avant TAGS", reducedRecipesArray);
+
+  reducedTagRecipesArray = [].concat(reducedRecipesArray);
+  console.log("reducedTagRecipesArray avant TAGS", reducedTagRecipesArray);
+  selectedIngredientsArray.forEach((selectedIngredient) =>
+    reducedTagRecipesArray = reducedTagRecipesArray.filter((item) =>
+      item.ingredients.some(
+        (ingredient) => ingredient.ingredient == selectedIngredient)));
+
+  selectedApplianceArray.forEach((selectedAppliance) =>
+    reducedTagRecipesArray = reducedTagRecipesArray.filter((item) =>
+      item.appliance == selectedAppliance));
+
+  selectedUstensilsArray.forEach((selectedUstensil) =>
+    reducedTagRecipesArray = reducedTagRecipesArray.filter((item) =>
+      item.ustensils.some(
+        (ustensil) => ustensil == selectedUstensil)));
+
+  console.log("reducedTagRecipesArray APRES TAGS", reducedTagRecipesArray);
+
+}
 
 function init() {
-  //premier lancement avec tous les ingredients (recipesArray est le tableau donné donc avec les 50 recettes)
+  //premier lancement avec tous les ingredients
   addOptionsIngredients(recipesArray);
   addOptionsAppliance(recipesArray);
   addOptionsUstensils(recipesArray);
-
+  createIngredientsTag();
+  createApplianceTag();
+  createUstensilsTag();
   searchBarFunction();
-  //clickOnSelectIngredientsFunction();
 }
 
 init();

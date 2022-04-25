@@ -25,7 +25,7 @@ function articleBuilder(recipe) {
     "#cardtext-ingredients-list-" + recipe.id
   );
 
-  // sous fonction qui ajoute la liste des ingredients selon divers cas de figure;
+  // sous-fonction qui ajoute la liste des ingredients selon divers cas de figure
 
   function recipeIngredientsQuantitySimplifyAndInsert(ingredient) {
     if (ingredient.quantity) {
@@ -88,7 +88,7 @@ function articleBuilder(recipe) {
 
 //fin de la fonction qui crée une vignette de recette
 
-// fonction qui boucle sur chacune des recettes du tableau /fichier fourni et crée toute la gallerie des vignettes
+// fonction qui boucle sur chacune des recettes du tableau /fichier fourni et crée toute la galerie des vignettes
 function galleryBuilder(recipesArray) {
   recipesArray.forEach((recipe) => articleBuilder(recipe));
 }

@@ -68,13 +68,19 @@ video:focus {
   padding-top: 30px;
 }
 
+.close-icon {
+  padding-bottom: 5px;
+}
+
 .ingredient-tag {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
   position: relative;
-  height: 69px;
-  width: 170px;
-  left: 0px;
-  top: 0px;
+  height: 28px;
+  width: 160px;
   padding-right: 10px;
+  padding-top: 8px;
   margin-right: 20px;
   border-radius: 5px;
   color: #FFFFFF;
@@ -85,6 +91,48 @@ video:focus {
   letter-spacing: 0em;
   text-align: center;
   background: #3282F7;
+}
+
+.appliance-tag {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+  position: relative;
+  height: 28px;
+  width: 160px;
+  padding-right: 10px;
+  padding-top: 8px;
+  margin-right: 20px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: "Lato";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  background: #68D9A4;
+}
+
+.ustensil-tag {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+  position: relative;
+  height: 28px;
+  width: 160px;
+  padding-right: 10px;
+  padding-top: 8px;
+  margin-right: 20px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-family: "Lato";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+  background: #ED6454;
 }
 
 #sort-menu-section {
