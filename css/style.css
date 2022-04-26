@@ -145,7 +145,6 @@ video:focus {
 .sort-menu {
   display: flex;
   flex-direction: column;
-  column-count: 4;
   height: 69px;
   width: 170px;
   left: 0px;
@@ -160,6 +159,8 @@ video:focus {
   letter-spacing: 0em;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
+  z-index: 10;
 }
 
 #ingredients-search {
@@ -202,14 +203,17 @@ video:focus {
 }
 
 #ingredients-list {
+  display: none;
   list-style-type: none;
 }
 
 #appliances-list {
+  display: none;
   list-style-type: none;
 }
 
 #ustensils-list {
+  display: none;
   list-style-type: none;
 }
 
@@ -218,18 +222,22 @@ video:focus {
 }
 
 #sort-menu-ingredients:hover {
-  display: inline-block;
   height: auto;
-  max-height: 500px;
   width: 600px;
 }
 
 #sort-menu-ingredients:hover #ingredients-search {
   display: flex;
+  padding-left: 30px;
 }
 
 #sort-menu-ingredients:hover #ingredients-label {
   display: none;
+}
+
+#sort-menu-ingredients:hover #ingredients-list {
+  display: inline-block;
+  column-count: 4;
 }
 
 #sort-menu-appliance {
@@ -242,10 +250,16 @@ video:focus {
 
 #sort-menu-appliance:hover #appliance-search {
   display: flex;
+  padding-left: 30px;
 }
 
 #sort-menu-appliance:hover #appliance-label {
   display: none;
+}
+
+#sort-menu-appliance:hover #appliances-list {
+  display: inline-block;
+  column-count: 1;
 }
 
 #sort-menu-ustensils {
@@ -253,21 +267,28 @@ video:focus {
 }
 
 #sort-menu-ustensils:hover {
-  display: inline-block;
   height: auto;
   width: 600px;
 }
 
 #sort-menu-ustensils:hover #ustensils-search {
   display: flex;
+  padding-left: 30px;
 }
 
 #sort-menu-ustensils:hover #ustensils-label {
   display: none;
 }
 
+#sort-menu-ustensils:hover #ustensils-list {
+  display: inline-block;
+  column-count: 4;
+}
+
 #gallery {
   display: grid;
+  position: absolute;
+  top: 350px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   margin-top: 100px;

@@ -139,7 +139,6 @@ background: $color-tertiary;}
 .sort-menu{
   display : flex;
   flex-direction: column;
-  column-count : 4;
   height: 69px;
   width: 170px;
   left: 0px;
@@ -154,41 +153,41 @@ background: $color-tertiary;}
   letter-spacing: 0em;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
+  z-index: 10;
 }
 
-#ingredients-search{display:none;background: $color-primary;color: #FFFFFF; border :none; height : 60px; }
+#ingredients-search{display:none;background: $color-primary;color: #FFFFFF; border :none; height : 60px; } //barre de recherche ingrédients cachée au départ
 #appliance-search{display:none; background:  $color-secondary;color: #FFFFFF; border :none; height : 60px;}
 #ustensils-search{display:none; background:  $color-tertiary;color: #FFFFFF; border :none; height : 60px;}
+
+
 
 #ingredients-label{padding-top: 26px; padding-bottom: 20px;} //pour centrer le mot ingrédients dans le bouton
 #appliance-label{padding-top: 26px; padding-bottom: 20px;}
 #ustensils-label{padding-top: 26px; padding-bottom: 20px;}
-#ingredients-list{list-style-type:none}
-#appliances-list{list-style-type:none}
-#ustensils-list{list-style-type:none}
+#ingredients-list{display : none;list-style-type:none}   //sans puce
+#appliances-list{display : none;list-style-type:none}
+#ustensils-list{display : none;list-style-type:none}
 
 #sort-menu-ingredients{  background: #3282F7;}
-#sort-menu-ingredients:hover{ display : inline-block;height: auto; max-height : 500px ;width :600px;}
-#sort-menu-ingredients:hover #ingredients-search{display:flex}
-#sort-menu-ingredients:hover #ingredients-label{display:none}
+#sort-menu-ingredients:hover{ height: auto; width :600px;}
+#sort-menu-ingredients:hover #ingredients-search{display:flex; padding-left: 30px;}
+#sort-menu-ingredients:hover #ingredients-label{display:none} // le mot ingrédient disparaît au survol
+#sort-menu-ingredients:hover #ingredients-list{display : inline-block;column-count : 4;}
+
 
 #sort-menu-appliance{background:  #68D9A4;}
 #sort-menu-appliance:hover{height: auto; }
-#sort-menu-appliance:hover #appliance-search{display:flex}
+#sort-menu-appliance:hover #appliance-search{display:flex; padding-left: 30px;}
 #sort-menu-appliance:hover #appliance-label{display:none}
-
+#sort-menu-appliance:hover #appliances-list{display : inline-block;column-count : 1;}
 
 #sort-menu-ustensils{background: #ED6454;}
-#sort-menu-ustensils:hover{ display : inline-block;height: auto; width :600px; }
-#sort-menu-ustensils:hover #ustensils-search{display:flex}
+#sort-menu-ustensils:hover{height: auto; width :600px; }
+#sort-menu-ustensils:hover #ustensils-search{display:flex; padding-left: 30px;}
 #sort-menu-ustensils:hover #ustensils-label{display:none}
-
-
-
-
-
-
-
+#sort-menu-ustensils:hover #ustensils-list{display : inline-block;column-count : 4;}
 
 
 
@@ -201,6 +200,8 @@ background: $color-tertiary;}
 
 #gallery {
   display: grid;
+  position: absolute;
+  top : 350px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   margin-top: 100px;
