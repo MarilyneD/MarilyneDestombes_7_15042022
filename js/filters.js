@@ -106,6 +106,7 @@ function findRecipesContaining(string, recipesArray) {
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
+    ingredientsSearchBar.value = ""; //vide recherche textuelle des ingrédients
     document.querySelectorAll(".tag").forEach((tag) => {tag.remove()}); //efface les tags lorsque l'on retourne sur une recherche par texte
     let value = e.target.value;
     if (value.trim().length >= 3) {
