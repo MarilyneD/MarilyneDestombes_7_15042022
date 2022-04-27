@@ -3,6 +3,7 @@ const appliancesList = document.getElementById("appliances-list");
 const ustensilsList = document.getElementById("ustensils-list");
 const gallery = document.querySelector("#gallery");
 const searchBar = document.getElementById("search-bar");
+const ingredientsSearchBar = document.getElementById("ingredients-search")
 const tags = document.getElementById("tags");
 var ingredientsArray = [];
 var applianceArray = [];
@@ -105,6 +106,7 @@ function findRecipesContaining(string, recipesArray) {
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
+    document.querySelectorAll(".tag").forEach((tag) => {tag.remove()}); //efface les tags lorsque l'on retourne sur une recherche par texte
     let value = e.target.value;
     if (value.trim().length >= 3) {
       findRecipesContaining(value, recipesArray);
@@ -279,6 +281,36 @@ function searchBarFunction() {
 
 }
 
+function ingredientsSearchBarFunction() {
+  ingredientsSearchBar.addEventListener("input", function (e) {
+    var ingredExp = new RegExp("" + e.target.value + "", "gi");
+    console.log("expression", ingredExp);
+    allIngredientsArray = recipesArray.map(recipe => recipe.ingredients).flat();
+    allIngredientsArray = allIngredientsArray.map(ingredient => ingredient.ingredient);
+    allIngredientsArray = [...new Set(allIngredientsArray)].sort();
+    //document.querySelectorAll(".ingredient-li").forEach((element) => {element.remove()});
+    ingredientsList.innerHTML = "";
+    allIngredientsArray.forEach((ingredientElement) => {
+
+      if (ingredExp.test(ingredientElement)) {
+        console.log("Regex Test",ingredExp.test(ingredientElement));
+        ingredientsList.insertAdjacentHTML("beforeend",
+          `<li class="ingredient-li">${ingredientElement}</li>`)
+      };
+    }
+    
+    )
+    createIngredientsTag();
+  }
+  
+  )
+
+}
+
+
+
+
+
 function init() {
   //premier lancement avec tous les ingredients
   addOptionsIngredients(recipesArray);
@@ -288,6 +320,7 @@ function init() {
   createApplianceTag();
   createUstensilsTag();
   searchBarFunction();
+  ingredientsSearchBarFunction();
 }
 
 init();

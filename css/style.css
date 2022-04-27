@@ -72,6 +72,10 @@ video:focus {
   padding-bottom: 5px;
 }
 
+.tag {
+  cursor: pointer;
+}
+
 .ingredient-tag {
   display: flex;
   justify-content: space-around;
@@ -146,7 +150,7 @@ video:focus {
   display: flex;
   flex-direction: column;
   height: 69px;
-  width: 170px;
+  width: 210px;
   left: 0px;
   top: 0px;
   padding-right: 30px;
@@ -163,12 +167,17 @@ video:focus {
   z-index: 10;
 }
 
+.open {
+  padding-left: 70px;
+}
+
 #ingredients-search {
   display: none;
   background: #3282F7;
   color: #FFFFFF;
   border: none;
   height: 60px;
+  cursor: pointer;
 }
 
 #appliance-search {
@@ -188,16 +197,19 @@ video:focus {
 }
 
 #ingredients-label {
+  padding-left: 25px;
   padding-top: 26px;
   padding-bottom: 20px;
 }
 
 #appliance-label {
+  padding-left: 25px;
   padding-top: 26px;
   padding-bottom: 20px;
 }
 
 #ustensils-label {
+  padding-left: 25px;
   padding-top: 26px;
   padding-bottom: 20px;
 }
@@ -215,6 +227,39 @@ video:focus {
 #ustensils-list {
   display: none;
   list-style-type: none;
+}
+
+.ingredient-li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ingredient-li:hover {
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.appliance-li:hover {
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.ustensil-li {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ustensil-li:hover {
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+  border: 2px solid;
+  border-radius: 5px;
 }
 
 #sort-menu-ingredients {
@@ -246,6 +291,7 @@ video:focus {
 
 #sort-menu-appliance:hover {
   height: auto;
+  width: 250px;
 }
 
 #sort-menu-appliance:hover #appliance-search {
