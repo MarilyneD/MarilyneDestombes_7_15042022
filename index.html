@@ -16,13 +16,12 @@
 <body>
   <!-- ==============================      HEADER : LOGO avec TITRE     ===============================-->
   <header class="logo">
-    <a id="home-page-link" href="index.html">
-      <img src="assets/images/logo.svg" alt="logo : une toque de chef cuisinier, Les petits plats" />
-    </a>
+    <img src="assets/images/logo.svg" alt="logo : une toque de chef cuisinier, Les petits plats" />
   </header>
   <!-- =========================      BARRE DE RECHERCHE PRINCIPALE     ========================-->
   <main id="main">
-    <section id="search">
+    <section id="search" data-error1="Veuillez entrer au moins trois caractères" data-error2="Aucune recette ne correspond à votre critère... Vous pouvez
+    chercher « tarte aux pommes », « poisson », etc.">
       <input id="search-bar" type="text" name="search" placeholder="Rechercher une recette">
       <img class="search-icon" src="assets/images/search.svg" alt="loupe de recherche" />
     </section>
@@ -31,34 +30,31 @@
     <!-- ================================== RECHERCHE PAR FILTRES =======================================-->
     <section id="sort-menu-section" tabindex="0" aria-label="trier par">
 
-
       <div id="sort-menu-ingredients" class="sort-menu">
-        <label id="ingredients-label">Ingrédients<img class="open-ingredients open" src="assets/images/down.svg" alt="ouvrir le menu" /></label>
-        
+        <label id="ingredients-label">Ingrédients<img class="open-ingredients open" src="assets/images/down.svg"
+            alt="ouvrir le menu" /></label>
+
         <input id="ingredients-search" type="text" placeholder="Rechercher un ingrédient...">
-        
+
         <ul id="ingredients-list"></ul>
       </div>
 
-
-
       <div id="sort-menu-appliance" class="sort-menu">
-        <label id="appliance-label">Appareils<img class="open-appliances open" src="assets/images/down.svg" alt="ouvrir le menu" /></label>
+        <label id="appliance-label">Appareils<img class="open-appliances open" src="assets/images/down.svg"
+            alt="ouvrir le menu" /></label>
         <!--  <input id="appliance-search" type="text" placeholder="Rechercher un appareil...">-->
-        
+
         <ul id="appliances-list"></ul>
       </div>
 
-
-
       <div id="sort-menu-ustensils" class="sort-menu">
-        <label id="ustensils-label">Ustensiles<img class="open-ustensils open" src="assets/images/down.svg" alt="ouvrir le menu" /></label>
-       <!--  <input id="ustensils-search" type="text" placeholder="Rechercher un ustensile...">-->
-        
+        <label id="ustensils-label">Ustensiles<img class="open-ustensils open" src="assets/images/down.svg"
+            alt="ouvrir le menu" /></label>
+        <!--  <input id="ustensils-search" type="text" placeholder="Rechercher un ustensile...">-->
+
         <ul id="ustensils-list"></ul>
       </div>
     </section>
-
 
     <!-- ==================== GALERIE DES RECETTES VIDE QUI EST REMPLIE GRACE AU FACTORY PATTERN ===========-->
     <section id="gallery"></section>
@@ -69,5 +65,4 @@
   <script src="js/index.js"></script>
   <script src="js/filters.js"></script>
 </body>
-
 </html>

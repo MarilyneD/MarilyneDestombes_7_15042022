@@ -2,6 +2,7 @@ const ingredientsList = document.getElementById("ingredients-list");
 const appliancesList = document.getElementById("appliances-list");
 const ustensilsList = document.getElementById("ustensils-list");
 const gallery = document.querySelector("#gallery");
+const search = document.querySelector("#search");
 const searchBar = document.getElementById("search-bar");
 const ingredientsSearchBar = document.getElementById("ingredients-search")
 const tags = document.getElementById("tags");
@@ -76,6 +77,7 @@ function addOptionsUstensils(recipesArray) {
   ustensilsArray.forEach((ustensil) => addOption(ustensil));
 }
 
+// ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1               
 // fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
 function findRecipesContaining(string, recipesArray) {
   var exp = new RegExp("" + string + "", "gi");
@@ -96,12 +98,11 @@ function findRecipesContaining(string, recipesArray) {
         reducedNameRecipesArray.map(recipe => recipe.id));
   console.log("La description contient l'expression,  numéros des recettes :",
         reducedDescriptionRecipesArray.map(recipe => recipe.id));
-
-  console.log("reducedIngredientsRecipesArray", reducedIngredientsRecipesArray);
-  console.log("reducedNameRecipesArray", reducedNameRecipesArray);
-  console.log("reducedDescriptionRecipesArray", reducedDescriptionRecipesArray);
   console.log("reducedRecipesArray", reducedRecipesArray);
 }
+
+
+
 
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
@@ -110,9 +111,12 @@ function searchBarFunction() {
     document.querySelectorAll(".tag").forEach((tag) => {tag.remove()}); //efface les tags lorsque l'on retourne sur une recherche par texte
     let value = e.target.value;
     if (value.trim().length >= 3) {
-      findRecipesContaining(value, recipesArray);
-      if (reducedRecipesArray == 0 ){console.log("Aucune recette ne correspond")}
-      else{gallery.innerHTML = "";
+      search.setAttribute("data-error1-visible", "false");
+      findRecipesContaining(value, recipesArray);      
+      if (reducedRecipesArray == 0 ){search.setAttribute("data-error2-visible","true");console.log("Aucune recette ne correspond");}
+      else{
+        search.setAttribute("data-error2-visible","false")
+        gallery.innerHTML = "";
       galleryBuilder(reducedRecipesArray);
       addOptionsIngredients(reducedRecipesArray);
       addOptionsAppliance(reducedRecipesArray);
@@ -120,9 +124,24 @@ function searchBarFunction() {
       createIngredientsTag();
       createApplianceTag();
       createUstensilsTag();}
-    } else { console.log("entrer au moins trois caractères") }
+    } else {
+      gallery.innerHTML = "";
+    galleryBuilder(recipesArray);
+    addOptionsIngredients(recipesArray);
+    addOptionsAppliance(recipesArray);
+    addOptionsUstensils(recipesArray);
+    createIngredientsTag();
+    createApplianceTag();
+    createUstensilsTag();
+    search.setAttribute("data-error1-visible", "true");
+    search.setAttribute("data-error2-visible", "false");
+     }
   });
+
 }
+
+
+
 
   //fonction qui écoute le click sur les ingrédients du menu select
   function createIngredientsTag() {

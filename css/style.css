@@ -4,12 +4,6 @@ body {
   margin-right: auto;
 }
 
-:focus-visible,
-video:focus {
-  outline: 0;
-  box-shadow: 0 0 0 6px #3282F7;
-}
-
 .logo {
   display: flex;
   justify-content: center;
@@ -37,6 +31,7 @@ video:focus {
 
 #search-bar {
   position: relative;
+  text-indent: 20px;
   height: 69px;
   width: 1240px;
   left: 0px;
@@ -59,6 +54,48 @@ video:focus {
   top: 23px;
   width: 32px;
   height: 32px;
+}
+
+#search[data-error1]::before {
+  content: attr(data-error1);
+  position: absolute;
+  top: 80px;
+  left: 25px;
+  font-size: 1em;
+  color: #867072;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+#search[data-error1-visible=true]::before {
+  opacity: 1;
+}
+
+#search[data-error2]::after {
+  content: attr(data-error2);
+  position: absolute;
+  top: 80px;
+  left: 25px;
+  font-size: 1em;
+  color: #867072;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+#search[data-error2-visible=true]::after {
+  opacity: 1;
 }
 
 #tags {
@@ -168,7 +205,7 @@ video:focus {
   color: #FFFFFF;
   font-family: "Lato";
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
@@ -249,13 +286,6 @@ video:focus {
   white-space: normal;
   text-overflow: clip;
   overflow: visible;
-  border: 2px solid;
-  border-radius: 5px;
-}
-
-.appliance-li:hover {
-  border: 2px solid;
-  border-radius: 5px;
 }
 
 .ustensil-li {
@@ -268,8 +298,6 @@ video:focus {
   white-space: normal;
   text-overflow: clip;
   overflow: visible;
-  border: 2px solid;
-  border-radius: 5px;
 }
 
 #sort-menu-ingredients {
@@ -364,11 +392,7 @@ video:focus {
   object-fit: cover;
   height: 180px;
   width: 100%;
-  border-radius: 5px;
-}
-#gallery article img:focus {
-  outline: 0;
-  box-shadow: 0 0 0 6px #3282F7;
+  border-radius: 5px 5px 0 0;
 }
 #gallery article .cardtext {
   display: grid;
@@ -378,6 +402,7 @@ video:focus {
   height: 184px;
   padding: 20px 0 0 0;
   background-color: #e7e7e7;
+  border-radius: 0 0 5px 5px;
 }
 #gallery article .cardtext-recipe-name {
   grid-column-start: 2;
