@@ -1,27 +1,37 @@
 body {
-  width: 1240px;
+  width: 1280px;
+  display : flex;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (max-width: 1350px){width : 80%;margin-left : 10%;margin-right : 10%;}
 }
 
+
+
 .logo {
-  display: flex;
+  display : flex;
   justify-content: center;
   position: absolute;
   align-items: center;
-  max-width: 100%;
+  width : 100%;
+  max-width: 1280px;
   height: 110px;
   top: 42px;
+  overflow : auto;
+  @media screen and (max-width: 1350px){width : 80%;}
 
   img {
-    margin-left: 500px;
+    margin-left: calc(50% - 150px);
+    margin-right : calc(50% - 150px);
+    width : 300px;
+
   }
 }
 
 #main {
   display: flex;
+  width : 100%;
   flex-direction: column;
-  max-width: 1240px;
   margin-top: 200px;
 }
 
@@ -38,7 +48,7 @@ body {
   position: relative;
   text-indent: 20px;
   height: 69px;
-  width: 1240px;
+  width: 100%;
   left: 0px;
   top: 0px;
   border-radius: 5px;
@@ -338,10 +348,14 @@ body {
 #gallery {
   display: grid;
   position: absolute;
+  width: 92%;
+  max-width: 1280px;
   top: 350px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   margin-top: 100px;
+  @media screen and (max-width: 1350px){width : 80%;grid-template-columns: 1fr 1fr;}
+  @media screen and (max-width: 900px){width : 80%;grid-template-columns: 1fr;}
 
   article {
     display: flex;
@@ -351,6 +365,8 @@ body {
     width: 380px;
     align-items: center;
     flex-direction: column;
+    @media screen and (max-width: 1350px){width : 100%;}
+   
 
     img {
       display: flex;
