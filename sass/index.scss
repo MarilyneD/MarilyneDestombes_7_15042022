@@ -25,6 +25,10 @@ body {
   margin-top: 200px;
 }
 
+
+
+// BARRE DE RECHERCHE PRINCIPALE       BARRE DE RECHERCHE PRINCIPALE       BARRE DE RECHERCHE PRINCIPALE       BARRE DE RECHERCHE PRINCIPALE                                           
+
 #search {
   display: flex;
   position: relative;
@@ -73,7 +77,7 @@ body {
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
-  z-index: 100;
+  z-index: 10;
 }
 
 #search[data-error1-visible="true"]::before {
@@ -95,7 +99,7 @@ body {
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
-  z-index: 100;
+  z-index: 10;
 }
 
 #search[data-error2-visible="true"]::after {
@@ -103,7 +107,7 @@ body {
 }
 
 
-//=======================================================================================================================
+// TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS   TAGS  
 
 #tags {
   display: flex;
@@ -121,55 +125,8 @@ body {
   cursor: pointer;
 }
 
-.ingredient-tag {
-  display: flex;
-  justify-content: space-around;
-  vertical-align: middle;
-  position: relative;
-  height: 28px;
-  min-width: 120px;
-  width: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 8px;
-  margin-right: 20px;
-  border-radius: 5px;
-  color: #FFFFFF;
-  white-space: nowrap;
-  font-family: 'Lato';
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  background: $color-primary;
-}
-
-.appliance-tag {
-  display: flex;
-  justify-content: space-around;
-  vertical-align: middle;
-  position: relative;
-  height: 28px;
-  min-width: 120px;
-  width: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 8px;
-  margin-right: 20px;
-  border-radius: 5px;
-  color: #FFFFFF;
-  white-space: nowrap;
-  font-family: 'Lato';
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0em;
-  text-align: center;
-  background: $color-secondary;
-}
-
-
+.ingredient-tag,
+.appliance-tag,
 .ustensil-tag {
   display: flex;
   justify-content: space-around;
@@ -191,11 +148,23 @@ body {
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
+
+}
+
+.ingredient-tag {
+  background: $color-primary;
+}
+
+.appliance-tag {
+  background: $color-secondary;
+}
+
+.ustensil-tag {
   background: $color-tertiary;
 }
 
 
-// menus select _______________________________________________________________________
+// RECHERCHE PAR FILTRE   RECHERCHE PAR FILTRE   RECHERCHE PAR FILTRE   RECHERCHE PAR FILTRE   RECHERCHE PAR FILTRE   RECHERCHE PAR FILTRE   
 
 #sort-menu-section {
   display: flex;
@@ -212,7 +181,6 @@ body {
   left: 0px;
   top: 0px;
   padding-right: 30px;
-  //padding-bottom: 10px;
   border-radius: 5px;
   color: #FFFFFF;
   font-family: 'Lato';
@@ -240,7 +208,6 @@ body {
   cursor: pointer;
 }
 
-//barre de recherche ingrédients cachée au départ
 #appliance-search {
   display: none;
   background: $color-secondary;
@@ -259,139 +226,114 @@ body {
 
 
 
-#ingredients-label {
-  padding-left: 25px;
-  padding-top: 26px;
-  padding-bottom: 20px;
-}
-
-//pour centrer le mot ingrédients dans le bouton
-#appliance-label {
-  padding-left: 25px;
-  padding-top: 26px;
-  padding-bottom: 20px;
-}
-
+#ingredients-label,
+#appliance-label,
 #ustensils-label {
   padding-left: 25px;
   padding-top: 26px;
   padding-bottom: 20px;
 }
 
-#ingredients-list {
-  display: none;
-  list-style-type: none;
-}
 
-//sans puce
-#appliances-list {
-  display: none;
-  list-style-type: none;
-}
 
+#ingredients-list,
+#appliances-list,
 #ustensils-list {
   display: none;
-  list-style-type: none;
+  list-style-type: none; // sans puce
 }
 
 
-
-.ingredient-li {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.ingredient-li:hover {
-  white-space: normal;
-  text-overflow: clip;
-  overflow: visible;
-}
-
+.ingredient-li,
 .ustensil-li {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.ustensil-li:hover {
-  white-space: normal;
-  text-overflow: clip;
-  overflow: visible;
-}
 
 
 #sort-menu-ingredients {
   background: #3282F7;
+
+  &:hover {
+    height: auto;
+    width: 700px;
+
+    #ingredients-search {
+      display: flex;
+      padding-left: 30px;
+    }
+
+    #ingredients-label {
+      display: none; // le mot ingrédient disparaît au survol
+    }
+
+    #ingredients-list {
+      display: inline-block;
+      column-count: 3;
+    }
+  }
 }
 
-#sort-menu-ingredients:hover {
-  height: auto;
-  width: 600px;
-}
 
-#sort-menu-ingredients:hover #ingredients-search {
-  display: flex;
-  padding-left: 30px;
-}
-
-#sort-menu-ingredients:hover #ingredients-label {
-  display: none
-}
-
-// le mot ingrédient disparaît au survol
-#sort-menu-ingredients:hover #ingredients-list {
-  display: inline-block;
-  column-count: 4;
-}
 
 
 #sort-menu-appliance {
   background: #68D9A4;
+
+  &:hover {
+    height: auto;
+    width: 250px;
+
+    #appliance-search {
+      display: flex;
+      padding-left: 30px;
+    }
+
+    #appliance-label {
+      display: none
+    }
+
+    #appliances-list {
+      display: inline-block;
+      column-count: 1;
+    }
+
+  }
+
 }
 
-#sort-menu-appliance:hover {
-  height: auto;
-  width: 250px;
-}
 
-#sort-menu-appliance:hover #appliance-search {
-  display: flex;
-  padding-left: 30px;
-}
 
-#sort-menu-appliance:hover #appliance-label {
-  display: none
-}
-
-#sort-menu-appliance:hover #appliances-list {
-  display: inline-block;
-  column-count: 1;
-}
 
 #sort-menu-ustensils {
   background: #ED6454;
+
+  &:hover {
+    height: auto;
+    width: 600px;
+
+    #ustensils-search {
+      display: flex;
+      padding-left: 30px;
+    }
+
+    #ustensils-label {
+      display: none
+    }
+
+    #ustensils-list {
+      display: inline-block;
+      column-count: 3;
+    }
+  }
+
 }
 
-#sort-menu-ustensils:hover {
-  height: auto;
-  width: 600px;
-}
 
-#sort-menu-ustensils:hover #ustensils-search {
-  display: flex;
-  padding-left: 30px;
-}
 
-#sort-menu-ustensils:hover #ustensils-label {
-  display: none
-}
-
-#sort-menu-ustensils:hover #ustensils-list {
-  display: inline-block;
-  column-count: 4;
-}
-
+// GALLERIE DES VIGNETTES   GALLERIE DES VIGNETTES   GALLERIE DES VIGNETTES   GALLERIE DES VIGNETTES   GALLERIE DES VIGNETTES   GALLERIE DES VIGNETTES   
 
 #gallery {
   display: grid;
