@@ -1,4 +1,4 @@
-// fonction qui crée une vignette en parcourant la recette et les ingrédients en les simplifiant
+// fonction qui crée une carte "recette" en parcourant la recette et les ingrédients en les simplifiant
 
 function articleBuilder(recipe) {
   let content = document.querySelector("#gallery");
@@ -25,7 +25,7 @@ function articleBuilder(recipe) {
     "#cardtext-ingredients-list-" + recipe.id
   );
 
-  // sous fonction qui ajoute la liste des ingredients selon divers cas de figure;
+  // sous-fonction qui ajoute la liste des ingredients selon divers cas de figure
 
   function recipeIngredientsQuantitySimplifyAndInsert(ingredient) {
     if (ingredient.quantity) {
@@ -86,9 +86,9 @@ function articleBuilder(recipe) {
   );
 }
 
-//fin de la fonction qui crée une vignette de recette
+//fin de la fonction qui crée une carte de recette
 
-// fonction qui boucle sur chacune des recettes du tableau /fichier fourni et crée toute la gallerie des vignettes
+// fonction qui boucle sur chacune des recettes du tableau /fichier fourni et crée toute la galerie des vignettes
 function galleryBuilder(recipesArray) {
   recipesArray.forEach((recipe) => articleBuilder(recipe));
 }
