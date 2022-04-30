@@ -85,25 +85,21 @@ function addOptionsUstensils(recipesArray) {
 function findRecipesContaining(string, recipesArray) {
   var exp = new RegExp("" + string + "", "gi");
   console.log("expression", exp);
-
-  reducedIngredientsRecipesArray = recipesArray.filter((item) =>
-    item.ingredients.some((ingredient) => exp.test(ingredient.ingredient)));
+  reducedIngredientsRecipesArray = recipesArray.filter((item) => item.ingredients.some((ingredient) => exp.test(ingredient.ingredient)));
   reducedNameRecipesArray = recipesArray.filter((item) => exp.test(item.name));
   reducedDescriptionRecipesArray = recipesArray.filter((item) => exp.test(item.description));
-  reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray);
+  reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray); 
   reducedRecipesArray = reducedRecipesArray.concat(reducedDescriptionRecipesArray);
   reducedRecipesArray = [...new Set(reducedRecipesArray)];
-
   // un peu de console.log pour voir ce qui se passe !!!
   console.log("Un ingrédient contient l'expression,  numéros des recettes :",
-    reducedIngredientsRecipesArray.map(recipe => recipe.id));
+      reducedIngredientsRecipesArray.map(recipe => recipe.id));
   console.log("Le titre contient l'expression,  numéros des recettes :",
-    reducedNameRecipesArray.map(recipe => recipe.id));
+        reducedNameRecipesArray.map(recipe => recipe.id));
   console.log("La description contient l'expression,  numéros des recettes :",
-    reducedDescriptionRecipesArray.map(recipe => recipe.id));
+        reducedDescriptionRecipesArray.map(recipe => recipe.id));
   console.log("reducedRecipesArray", reducedRecipesArray);
 }
-
 
 
 
