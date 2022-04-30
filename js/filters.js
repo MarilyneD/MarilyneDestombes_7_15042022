@@ -82,7 +82,7 @@ function addOptionsUstensils(recipesArray) {
 
 // ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1               
 // fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
-function findRecipesContainingOLD(string, recipesArray) {
+function findRecipesContaining(string, recipesArray) {
   var exp = new RegExp("" + string + "", "gi");
   console.log("expression", exp);
   reducedIngredientsRecipesArray = recipesArray.filter((item) => item.ingredients.some((ingredient) => exp.test(ingredient.ingredient)));
