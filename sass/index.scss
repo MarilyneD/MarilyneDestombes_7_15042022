@@ -354,8 +354,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   margin-top: 100px;
-  @media screen and (max-width: 1350px){width : 80%;grid-template-columns: 1fr 1fr;}
-  @media screen and (max-width: 900px){width : 80%;grid-template-columns: 1fr;}
+  //@media screen and (max-width: 1350px){width : 80%;grid-template-columns: 1fr 1fr;}
+  //@media screen and (max-width: 900px){width : 80%;grid-template-columns: 1fr;}
 
   article {
     display: flex;
@@ -472,3 +472,8 @@ body {
     }
   }
 }
+
+
+
+@media screen and (max-width: 1350px){#gallery{width : 80%;grid-template-columns: 1fr 1fr;}}
+@media screen and (max-width: 900px){#gallery{width : 80%;grid-template-columns: 1fr;}}

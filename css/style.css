@@ -314,18 +314,6 @@ body {
   gap: 45px;
   margin-top: 100px;
 }
-@media screen and (max-width: 1350px) {
-  #gallery {
-    width: 80%;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width: 900px) {
-  #gallery {
-    width: 80%;
-    grid-template-columns: 1fr;
-  }
-}
 #gallery article {
   display: flex;
   justify-self: center;
@@ -429,6 +417,19 @@ body {
   letter-spacing: 0em;
   text-align: left;
   height: 84px;
+}
+
+@media screen and (max-width: 1350px) {
+  #gallery {
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 900px) {
+  #gallery {
+    width: 80%;
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
