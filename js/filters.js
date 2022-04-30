@@ -80,27 +80,30 @@ function addOptionsUstensils(recipesArray) {
   ustensilsArray.forEach((ustensil) => addOption(ustensil));
 }
 
-// ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1     ALGO1               
-// fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
-function findRecipesContaining(string, recipesArray) {
-  var exp = new RegExp("" + string + "", "gi");
-  console.log("expression", exp);
-  reducedIngredientsRecipesArray = recipesArray.filter((item) => item.ingredients.some((ingredient) => exp.test(ingredient.ingredient)));
-  reducedNameRecipesArray = recipesArray.filter((item) => exp.test(item.name));
-  reducedDescriptionRecipesArray = recipesArray.filter((item) => exp.test(item.description));
-  reducedRecipesArray = reducedIngredientsRecipesArray.concat(reducedNameRecipesArray); 
-  reducedRecipesArray = reducedRecipesArray.concat(reducedDescriptionRecipesArray);
-  reducedRecipesArray = [...new Set(reducedRecipesArray)];
-  // un peu de console.log pour voir ce qui se passe !!!
-  console.log("Un ingrédient contient l'expression,  numéros des recettes :",
-      reducedIngredientsRecipesArray.map(recipe => recipe.id));
-  console.log("Le titre contient l'expression,  numéros des recettes :",
-        reducedNameRecipesArray.map(recipe => recipe.id));
-  console.log("La description contient l'expression,  numéros des recettes :",
-        reducedDescriptionRecipesArray.map(recipe => recipe.id));
-  console.log("reducedRecipesArray", reducedRecipesArray);
-}
-
+// ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2              
+  // fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
+  function findRecipesContaining(string, recipesArray) {
+    var exp = new RegExp("" + string + "", "gi");
+    console.log("expression", exp);
+    reducedRecipesArray = [];
+  
+    for (let pas1 = 0; pas1 < recipesArray.length; pas1++) {
+      let nbIngredients = 0;
+      let nbName = 0; 
+      let nbDescription = 0;
+      let somme = 0; 
+      for (let pas2 = 0; pas2 < recipesArray[pas1].ingredients.length; pas2++) {
+        if (exp.test(recipesArray[pas1].ingredients[pas2].ingredient.toString())) { nbIngredients++ };
+      }
+      if (exp.test(recipesArray[pas1].name.toString())) { nbName++ };
+      if (exp.test(recipesArray[pas1].description.toString())) { nbDescription++ };
+      somme = nbIngredients + nbName + nbDescription;
+      if (somme > 0) {
+        reducedRecipesArray.push(recipesArray[pas1]);
+      }
+    }
+    console.log("reducedRecipesArray", reducedRecipesArray);
+  }
 
 
 // fonction écoute de l'input dans la barre de recherche
