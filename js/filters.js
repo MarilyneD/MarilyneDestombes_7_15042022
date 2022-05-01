@@ -110,8 +110,11 @@ function addOptionsUstensils(recipesArray) {
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
-    ingredientsSearchBar.value = ""; //vide recherche textuelle des ingrédients
+    ingredientsSearchBar.value = ""; //vide "rechercher un ingrédient", recherche textuelle des ingrédients
     document.querySelectorAll(".tag").forEach((tag) => { tag.remove() }); //efface les tags lorsque l'on retourne sur une recherche par texte
+    selectedIngredientsArray=[];
+    selectedApplianceArray=[];
+    selectedUstensilsArray=[];
     let value = e.target.value;
     if (value.trim().length >= 3) {
       search.setAttribute("data-error1-visible", "false");
