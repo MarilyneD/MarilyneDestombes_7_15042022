@@ -37,7 +37,9 @@ function addOptionsIngredients(recipesArray) {
     ingredientsArray = [];
     ingredientsArray = recipesArray.map(recipe => recipe.ingredients).flat();
     ingredientsArray = ingredientsArray.map(ingredient => ingredient.ingredient);
-    ingredientsArray = [...new Set(ingredientsArray)].sort();
+    ingredientsArray = [...new Set(ingredientsArray)].sort(function (a, b) {
+      return a.localeCompare(b);
+});
   };
   ingredientsArrayInit();
   ingredientsList.innerHTML = "";
@@ -68,7 +70,9 @@ function addOptionsAppliance(recipesArray) {
 function addOptionsUstensils(recipesArray) {
   function ustensilsArrayInit() {
     ustensilsArray = recipesArray.map(recipe => recipe.ustensils).flat();
-    ustensilsArray = [...new Set(ustensilsArray)].sort();
+    ustensilsArray = [...new Set(ustensilsArray)].sort(function (a, b) {
+      return a.localeCompare(b);
+});
   }
   ustensilsArrayInit();
   ustensilsList.innerHTML = "";
