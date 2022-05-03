@@ -37,7 +37,9 @@ function addOptionsIngredients(recipesArray) {
     ingredientsArray = [];
     ingredientsArray = recipesArray.map(recipe => recipe.ingredients).flat();
     ingredientsArray = ingredientsArray.map(ingredient => ingredient.ingredient);
-    ingredientsArray = [...new Set(ingredientsArray)].sort();
+    ingredientsArray = [...new Set(ingredientsArray)].sort(function (a, b) {
+      return a.localeCompare(b);
+    });
   };
   ingredientsArrayInit();
   ingredientsList.innerHTML = "";
@@ -68,7 +70,9 @@ function addOptionsAppliance(recipesArray) {
 function addOptionsUstensils(recipesArray) {
   function ustensilsArrayInit() {
     ustensilsArray = recipesArray.map(recipe => recipe.ustensils).flat();
-    ustensilsArray = [...new Set(ustensilsArray)].sort();
+    ustensilsArray = [...new Set(ustensilsArray)].sort(function (a, b) {
+      return a.localeCompare(b);
+    });
   }
   ustensilsArrayInit();
   ustensilsList.innerHTML = "";
@@ -102,12 +106,14 @@ function findRecipesContaining(string, recipesArray) {
 }
 
 
-
 // fonction écoute de l'input dans la barre de recherche
 function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
     ingredientsSearchBar.value = ""; //vide recherche textuelle des ingrédients
     document.querySelectorAll(".tag").forEach((tag) => { tag.remove() }); //efface les tags lorsque l'on retourne sur une recherche par texte
+    selectedIngredientsArray=[];
+    selectedApplianceArray=[];
+    selectedUstensilsArray=[];
     let value = e.target.value;
     if (value.trim().length >= 3) {
       search.setAttribute("data-error1-visible", "false");

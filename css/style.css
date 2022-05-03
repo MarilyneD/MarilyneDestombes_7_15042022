@@ -190,14 +190,22 @@ body {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   overflow: hidden;
   z-index: 10;
 }
 
-.open {
-  padding-left: 70px;
+.open-ingredients {
+  padding-left: 75px;
+}
+
+.open-appliances {
+  padding-left: 88px;
+}
+
+.open-ustensils {
+  padding-left: 80px;
 }
 
 #ingredients-search {
