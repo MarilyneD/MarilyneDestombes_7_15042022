@@ -4,6 +4,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   @media screen and (max-width: 1350px){width : 80%;margin-left : 10%;margin-right : 10%;}
+  @media screen and (max-width: 600px){width : 90%;margin-left : 5%;margin-right : 5%;}
 }
 
 
@@ -19,6 +20,7 @@ body {
   top: 42px;
   overflow : auto;
   @media screen and (max-width: 1350px){width : 80%;}
+  @media screen and (max-width: 600px){top: 30px;width : 90%;}
 
   img {
     margin-left: calc(50% - 150px);
@@ -33,6 +35,9 @@ body {
   width : 100%;
   flex-direction: column;
   margin-top: 200px;
+  @media screen and (max-width: 1350px){margin-top: 160px;}
+  @media screen and (max-width: 600px){margin-top: 140px;}
+
 }
 
 
@@ -84,7 +89,7 @@ body {
   margin-top: 7px;
   margin-bottom: 7px;
   text-align: left;
-  line-height: 0.3;
+  line-height: 0.9;
   opacity: 0;
   transition: 0.3s;
   z-index: 10;
@@ -106,10 +111,17 @@ body {
   margin-top: 7px;
   margin-bottom: 7px;
   text-align: left;
-  line-height: 0.3;
+  line-height: 0.9;
   opacity: 0;
   transition: 0.3s;
   z-index: 10;
+  @media screen and (max-width: 540px){top:70px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;}
+
+
 }
 
 #search[data-error2-visible="true"]::after {
@@ -179,15 +191,20 @@ body {
 #sort-menu-section {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   column-gap: 30px;
-  margin-top: 25px;
+  row-gap: 10px;
+  margin-top: 20px;
+  @media screen and (max-width: 1400px){flex-direction: column;}
 }
 
 .sort-menu {
   display: flex;
   flex-direction: column;
   height: 69px;
+  justify-content: space-between;
   width: 210px;
+  //min-width: 300px;
   left: 0px;
   top: 0px;
   padding-right: 30px;
@@ -202,18 +219,32 @@ body {
   cursor: pointer;
   overflow: hidden;
   z-index: 10;
-}
+  @media screen and (max-width: 1400px){width: 60%;}
+  @media screen and (max-width: 700px){width: 300px;}
+  }
 
 
 .open-ingredients {
   padding-left: 75px;
+  @media screen and (max-width: 1400px){ padding-left: 80%;}
+  @media screen and (max-width: 1180px){ padding-left: 70%;}
+  @media screen and (max-width: 800px){ padding-left: 65%;}
+  @media screen and (max-width: 700px){ padding-left: 150px;}
 }
 
 .open-appliances {
-  padding-left: 88px;
+  padding-left: 77px;
+  @media screen and (max-width: 1400px){ padding-left: 82%;}
+  @media screen and (max-width: 1180px){ padding-left: 72%;}
+  @media screen and (max-width: 800px){ padding-left: 67%;}
+  @media screen and (max-width: 700px){ padding-left: 164px;}
 }
 .open-ustensils {
-  padding-left: 80px;
+  padding-left: 76px;
+  @media screen and (max-width: 1400px){ padding-left: 81%;}
+  @media screen and (max-width: 1180px){ padding-left: 71%;}
+  @media screen and (max-width: 800px){ padding-left: 66%;}
+  @media screen and (max-width: 700px){ padding-left: 157px;}
 }
 
 
@@ -222,7 +253,7 @@ body {
   background: $color-primary;
   color: #FFFFFF;
   border: none;
-  height: 60px;
+  height: 53px;
   cursor: pointer;
 }
 
@@ -231,7 +262,7 @@ body {
   background: $color-secondary;
   color: #FFFFFF;
   border: none;
-  height: 60px;
+  height: 53px;
 }
 
 #ustensils-search {
@@ -239,7 +270,7 @@ body {
   background: $color-tertiary;
   color: #FFFFFF;
   border: none;
-  height: 60px;
+  height: 53px;
 }
 
 
@@ -257,6 +288,7 @@ body {
 #ingredients-list,
 #appliances-list,
 #ustensils-list {
+  margin-top: 0px;
   display: none;
   list-style-type: none; // sans puce
 }
@@ -270,13 +302,14 @@ body {
 }
 
 
-
 #sort-menu-ingredients {
   background: #3282F7;
 
-  &:hover {
+  &:hover, &:active {
     height: auto;
     width: 700px;
+    @media screen and (max-width: 1400px){width: 60%;}
+    @media screen and (max-width: 1000px){width: 80%;}
 
     #ingredients-search {
       display: flex;
@@ -291,6 +324,7 @@ body {
       display: inline-block;
       column-count: 3;
     }
+
   }
 }
 
@@ -300,9 +334,11 @@ body {
 #sort-menu-appliance {
   background: #68D9A4;
 
-  &:hover {
+  &:hover, &:active {
     height: auto;
     width: 250px;
+    @media screen and (max-width: 1400px){width: 60%;}
+    @media screen and (max-width: 1000px){width: 80%;}
 
     #appliance-search {
       display: flex;
@@ -328,9 +364,11 @@ body {
 #sort-menu-ustensils {
   background: #ED6454;
 
-  &:hover {
+  &:hover, &:active {
     height: auto;
     width: 600px;
+    @media screen and (max-width: 1400px){width: 60%;}
+    @media screen and (max-width: 1000px){width: 80%;}
 
     #ustensils-search {
       display: flex;
@@ -358,12 +396,15 @@ body {
   position: absolute;
   width: 92%;
   max-width: 1280px;
-  top: 350px;
+  top: 370px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
-  margin-top: 100px;
-  //@media screen and (max-width: 1350px){width : 80%;grid-template-columns: 1fr 1fr;}
-  //@media screen and (max-width: 900px){width : 80%;grid-template-columns: 1fr;}
+  margin-top: 80px;
+  @media screen and (max-width: 1400px){margin-top: 230px;}
+@media screen and (max-width: 1350px){width : 80%;top : 320px;grid-template-columns: 1fr 1fr;}
+@media screen and (max-width: 950px){width : 80%;gap: 25px;grid-template-columns: 1fr;}
+@media screen and (max-width: 600px){width : 90%;}
+
 
   article {
     display: flex;
@@ -374,6 +415,7 @@ body {
     align-items: center;
     flex-direction: column;
     @media screen and (max-width: 1350px){width : 100%;}
+   
    
 
     img {
@@ -429,7 +471,7 @@ body {
 
       .cardtext-cooking-time-number {
         position: relative;
-        top: -50%;
+        top: -55%;
         font-family: 'Lato';
         font-style: normal;
         font-weight: 700;
@@ -468,7 +510,6 @@ body {
       -webkit-line-clamp: 7;
       -webkit-box-orient: vertical;
       white-space: normal;
-      width: 170px;
       font-family: 'Roboto';
       font-style: normal;
       font-size: 12px;
@@ -477,11 +518,9 @@ body {
       letter-spacing: 0em;
       text-align: left;
       height: 84px;
+      @media screen and (max-width: 950px){;}
     }
   }
 }
 
 
-
-@media screen and (max-width: 1350px){#gallery{width : 80%;grid-template-columns: 1fr 1fr;}}
-@media screen and (max-width: 900px){#gallery{width : 80%;grid-template-columns: 1fr;}}
