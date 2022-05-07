@@ -369,28 +369,28 @@ body {
 #sort-menu-ingredients {
   background: #3282F7;
 }
-#sort-menu-ingredients:hover, #sort-menu-ingredients:active {
+#sort-menu-ingredients:hover, #sort-menu-ingredients:active, #sort-menu-ingredients:focus {
   height: auto;
   width: 700px;
 }
 @media screen and (max-width: 1400px) {
-  #sort-menu-ingredients:hover, #sort-menu-ingredients:active {
+  #sort-menu-ingredients:hover, #sort-menu-ingredients:active, #sort-menu-ingredients:focus {
     width: 60%;
   }
 }
 @media screen and (max-width: 1000px) {
-  #sort-menu-ingredients:hover, #sort-menu-ingredients:active {
+  #sort-menu-ingredients:hover, #sort-menu-ingredients:active, #sort-menu-ingredients:focus {
     width: 80%;
   }
 }
-#sort-menu-ingredients:hover #ingredients-search, #sort-menu-ingredients:active #ingredients-search {
+#sort-menu-ingredients:hover #ingredients-search, #sort-menu-ingredients:active #ingredients-search, #sort-menu-ingredients:focus #ingredients-search {
   display: flex;
   padding-left: 30px;
 }
-#sort-menu-ingredients:hover #ingredients-label, #sort-menu-ingredients:active #ingredients-label {
+#sort-menu-ingredients:hover #ingredients-label, #sort-menu-ingredients:active #ingredients-label, #sort-menu-ingredients:focus #ingredients-label {
   display: none;
 }
-#sort-menu-ingredients:hover #ingredients-list, #sort-menu-ingredients:active #ingredients-list {
+#sort-menu-ingredients:hover #ingredients-list, #sort-menu-ingredients:active #ingredients-list, #sort-menu-ingredients:focus #ingredients-list {
   display: inline-block;
   column-count: 3;
 }

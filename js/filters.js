@@ -10,17 +10,17 @@ const ingredientsSearchBar = document.getElementById("ingredients-search");
 const applianceSearchBar = document.getElementById("appliance-search");
 const ustensilsSearchBar = document.getElementById("ustensils-search");
 const tags = document.getElementById("tags");
-var ingredientsArray = [];
-var applianceArray = [];
-var ustensilsArray = [];
-var tagIngredientsArray = [];
-var tagApplianceArray = [];
-var tagUstensilsArray = [];
-var reducedRecipesArray = [];
-var reducedTagRecipesArray = [];
-var selectedIngredientsArray = [];
-var selectedApplianceArray = [];
-var selectedUstensilsArray = [];
+let ingredientsArray = [];
+let applianceArray = [];
+let ustensilsArray = [];
+let tagIngredientsArray = [];
+let tagApplianceArray = [];
+let tagUstensilsArray = [];
+let reducedRecipesArray = [];
+let reducedTagRecipesArray = [];
+let selectedIngredientsArray = [];
+let selectedApplianceArray = [];
+let selectedUstensilsArray = [];
 
 
 
@@ -32,7 +32,7 @@ function addOptionsIngredients(recipesArray) {
     ingredientsArray = ingredientsArray.map((ingredient) => ingredient.ingredient);
     ingredientsArray = [...new Set(ingredientsArray)].sort(function (a, b) {
       return a.localeCompare(b);
-});
+    });
   }
   ingredientsArrayInit();
   ingredientsList.innerHTML = "";
@@ -65,7 +65,7 @@ function addOptionsUstensils(recipesArray) {
     ustensilsArray = recipesArray.map((recipe) => recipe.ustensils).flat();
     ustensilsArray = [...new Set(ustensilsArray)].sort(function (a, b) {
       return a.localeCompare(b);
-});
+    });
   }
   ustensilsArrayInit();
   ustensilsList.innerHTML = "";
@@ -78,29 +78,29 @@ function addOptionsUstensils(recipesArray) {
 }
 
 // ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2     ALGO2              
-  // fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
-  function findRecipesContaining(string, recipesArray) {
-    var exp = new RegExp("" + string + "", "gi");
-    console.log("expression", exp);
-    reducedRecipesArray = [];
-  
-    for (let pas1 = 0; pas1 < recipesArray.length; pas1++) {
-      let nbIngredients = 0;
-      let nbName = 0; 
-      let nbDescription = 0;
-      let somme = 0; 
-      for (let pas2 = 0; pas2 < recipesArray[pas1].ingredients.length; pas2++) {
-        if (exp.test(recipesArray[pas1].ingredients[pas2].ingredient.toString())) { nbIngredients++ }
-      }
-      if (exp.test(recipesArray[pas1].name.toString())) { nbName++ }
-      if (exp.test(recipesArray[pas1].description.toString())) { nbDescription++ }
-      somme = nbIngredients + nbName + nbDescription;
-      if (somme > 0) {
-        reducedRecipesArray.push(recipesArray[pas1]);
-      }
+// fonction qui va établir le tableau des recettes contenant le mot 'string' dans l'une des trois sous-catégories : titre, ingredients et description
+function findRecipesContaining(string, recipesArray) {
+  let exp = new RegExp("" + string + "", "gi");
+  console.log("expression", exp);
+  reducedRecipesArray = [];
+
+  for (let pas1 = 0; pas1 < recipesArray.length; pas1++) {
+    let nbIngredients = 0;
+    let nbName = 0;
+    let nbDescription = 0;
+    let somme = 0;
+    for (let pas2 = 0; pas2 < recipesArray[pas1].ingredients.length; pas2++) {
+      if (exp.test(recipesArray[pas1].ingredients[pas2].ingredient.toString())) { nbIngredients++ }
     }
-    console.log("reducedRecipesArray", reducedRecipesArray);
+    if (exp.test(recipesArray[pas1].name.toString())) { nbName++ }
+    if (exp.test(recipesArray[pas1].description.toString())) { nbDescription++ }
+    somme = nbIngredients + nbName + nbDescription;
+    if (somme > 0) {
+      reducedRecipesArray.push(recipesArray[pas1]);
+    }
   }
+  console.log("reducedRecipesArray", reducedRecipesArray);
+}
 
 
 
@@ -109,9 +109,9 @@ function searchBarFunction() {
   searchBar.addEventListener("input", function (e) {
     ingredientsSearchBar.value = ""; //vide "rechercher un ingrédient", recherche textuelle des ingrédients
     document.querySelectorAll(".tag").forEach((tag) => { tag.remove() }); //efface les tags lorsque l'on retourne sur une recherche par texte
-    selectedIngredientsArray=[];
-    selectedApplianceArray=[];
-    selectedUstensilsArray=[];
+    selectedIngredientsArray = [];
+    selectedApplianceArray = [];
+    selectedUstensilsArray = [];
     let value = e.target.value;
     if (value.trim().length >= 3) {
       search.setAttribute("data-error1-visible", "false");
@@ -152,7 +152,7 @@ function createIngredientsTag() {
 
     ingredientElement.addEventListener("click", () => {
       console.log("click sur l'ingrédient :", ingredientElement.textContent);
-      if (search.getAttribute("data-error1-visible")=="true"||search.getAttribute("data-error2-visible")=="true"){searchBar.value = ""}
+      if (search.getAttribute("data-error1-visible") == "true" || search.getAttribute("data-error2-visible") == "true") { searchBar.value = "" }
       search.setAttribute("data-error1-visible", "false");
       search.setAttribute("data-error2-visible", "false");
       if (!(selectedIngredientsArray.includes(ingredientElement.textContent))) {
@@ -183,7 +183,7 @@ function createApplianceTag() {
 
     applianceElement.addEventListener("click", () => {
       console.log("click sur l'appareil :", applianceElement.textContent);
-      if (search.getAttribute("data-error1-visible")=="true"||search.getAttribute("data-error2-visible")=="true"){searchBar.value = ""}
+      if (search.getAttribute("data-error1-visible") == "true" || search.getAttribute("data-error2-visible") == "true") { searchBar.value = "" }
       search.setAttribute("data-error1-visible", "false");
       search.setAttribute("data-error2-visible", "false");
       if (!(selectedApplianceArray.includes(applianceElement.textContent))) {
@@ -212,7 +212,7 @@ function createUstensilsTag() {
 
     ustensilElement.addEventListener("click", () => {
       console.log("click sur l'ustensile :", ustensilElement.textContent);
-      if (search.getAttribute("data-error1-visible")=="true"||search.getAttribute("data-error2-visible")=="true"){searchBar.value = ""}
+      if (search.getAttribute("data-error1-visible") == "true" || search.getAttribute("data-error2-visible") == "true") { searchBar.value = "" }
       search.setAttribute("data-error1-visible", "false");
       search.setAttribute("data-error2-visible", "false");
 
@@ -313,28 +313,29 @@ function tagRecipes() {
 
 function ingredientsSearchBarFunction() {
   ingredientsSearchBar.addEventListener("input", function (e) {
-    var ingredExp = new RegExp("" + e.target.value + "", "gi");
+    let ingredExp = new RegExp("" + e.target.value + "", "gi");
     console.log("expression", ingredExp);
     if (reducedTagRecipesArray.length == 0) { reducedTagRecipesArray = [].concat(recipesArray) }//on commence directement par cette recherche et pas de Tag sélectionnée
     tagIngredientsArray = reducedTagRecipesArray.map(recipe => recipe.ingredients).flat();
     tagIngredientsArray = tagIngredientsArray.map(ingredient => ingredient.ingredient);
     tagIngredientsArray = [...new Set(tagIngredientsArray)].sort(function (a, b) {
-      return a.localeCompare(b);});
+      return a.localeCompare(b);
+    });
     ingredientsList.innerHTML = "";
     tagIngredientsArray.forEach((ingredientElement) => {
 
       if (ingredExp.test(ingredientElement)) {
         console.log("Regex Test", ingredExp.test(ingredientElement));
         ingredientsList.insertAdjacentHTML("beforeend",
-          `<li class="ingredient-li">${ingredientElement}</li>`)
+          `<li class="ingredient-li">${ingredientElement}</li>`);
       }
     }
 
-    )
+    );
     createIngredientsTag();
   }
 
-  )
+  );
 
 }
 
@@ -342,12 +343,13 @@ function ingredientsSearchBarFunction() {
 
 function applianceSearchBarFunction() {
   applianceSearchBar.addEventListener("input", function (e) {
-    var applianceExp = new RegExp("" + e.target.value + "", "gi");
+    let applianceExp = new RegExp("" + e.target.value + "", "gi");
     console.log("expression", applianceExp);
     if (reducedTagRecipesArray.length == 0) { reducedTagRecipesArray = [].concat(recipesArray) }//on commence directement par cette recherche et pas de Tag sélectionnée
     tagApplianceArray = reducedTagRecipesArray.map(recipe => recipe.appliance).flat();
     tagApplianceArray = [...new Set(tagApplianceArray)].sort(function (a, b) {
-      return a.localeCompare(b);});
+      return a.localeCompare(b);
+    });
     appliancesList.innerHTML = "";
     tagApplianceArray.forEach((applianceElement) => {
 
@@ -370,27 +372,28 @@ function applianceSearchBarFunction() {
 
 function ustensilsSearchBarFunction() {
   ustensilsSearchBar.addEventListener("input", function (e) {
-    var ustenExp = new RegExp("" + e.target.value + "", "gi");
+    let ustenExp = new RegExp("" + e.target.value + "", "gi");
     console.log("expression", ustenExp);
     if (reducedTagRecipesArray.length == 0) { reducedTagRecipesArray = [].concat(recipesArray) }//on commence directement par cette recherche et pas de Tag sélectionnée
     tagUstensilsArray = reducedTagRecipesArray.map(recipe => recipe.ustensils).flat();
     tagUstensilsArray = [...new Set(tagUstensilsArray)].sort(function (a, b) {
-      return a.localeCompare(b);});
+      return a.localeCompare(b);
+    });
     ustensilsList.innerHTML = "";
     tagUstensilsArray.forEach((ustensilElement) => {
 
       if (ustenExp.test(ustensilElement)) {
         console.log("Regex Test", ustenExp.test(ustensilElement));
         ustensilsList.insertAdjacentHTML("beforeend",
-          `<li class="ustensil-li">${ustensilElement}</li>`)
+          `<li class="ustensil-li">${ustensilElement}</li>`);
       }
     }
 
-    )
+    );
     createUstensilsTag();
   }
 
-  )
+  );
 
 }
 

@@ -305,7 +305,7 @@ body {
 #sort-menu-ingredients {
   background: #3282F7;
 
-  &:hover, &:active {
+  &:hover, &:active ,&:focus {
     height: auto;
     width: 700px;
     @media screen and (max-width: 1400px){width: 60%;}
