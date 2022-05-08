@@ -269,8 +269,7 @@ function closeTag() {
 function tagRecipes() {
   if (reducedRecipesArray.length === 0) { reducedRecipesArray = [].concat(recipesArray); }
   reducedTagRecipesArray = [].concat(reducedRecipesArray);
-  selectedIngredientsArray.forEach((selectedIngredient)
-    => reducedTagRecipesArray = reducedTagRecipesArray.filter((item) => item.ingredients.some(
+  selectedIngredientsArray.forEach((selectedIngredient) => reducedTagRecipesArray = reducedTagRecipesArray.filter((item) => item.ingredients.some(
     (ingredient) => ingredient.ingredient == selectedIngredient,
   )));
 
