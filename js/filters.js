@@ -293,10 +293,12 @@ function ingredientsSearchBarFunction() {
     tagIngredientsArray = [...new Set(tagIngredientsArray)].sort(function (a, b) {
       return a.localeCompare(b);
     });
+    console.log("tagIngredientsArray",tagIngredientsArray);
     ingredientsList.innerHTML = '';
     tagIngredientsArray.forEach((ingredientElement) => {
 
       if (ingredExp.test(ingredientElement)) {
+        console.log(ingredientElement,ingredExp.test(ingredientElement));
         ingredientsList.insertAdjacentHTML('beforeend',
           `<li class="ingredient-li">${ingredientElement}</li>`);
       }
