@@ -16,9 +16,11 @@ let tagApplianceArray = [];
 let tagUstensilsArray = [];
 let reducedRecipesArray = [];
 let reducedTagRecipesArray = [];
+let reducedNameRecipesArray = [];
 let selectedIngredientsArray = [];
 let selectedApplianceArray = [];
 let selectedUstensilsArray = [];
+let reducedDescriptionRecipesArray = [];
 
 // fonctions d'ajout des options dans le menu select ingrédients
 function addOptionsIngredients(recipesArray) {
